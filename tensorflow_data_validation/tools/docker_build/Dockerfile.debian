@@ -1,0 +1,9 @@
+FROM python:3.9-bullseye
+RUN DEBIAN_FRONTEND=noninteractive && apt-get -y update && apt-get -y install build-essential openjdk-11-jdk zip unzip wget
+RUN wget https://github.com/bazelbuild/bazel/releases/download/6.1.0/bazel-6.1.0-dist.zip
+RUN mkdir bazel && unzip -d ./bazel bazel-6.1.0-dist.zip
+WORKDIR /bazel
+RUN env EXTRA_BAZEL_ARGS="--host_javabase=@local_jdk//:jdk" bash ./compile.sh && cp output/bazel /usr/local/bin
+
+WORKDIR /build
+CMD ["tensorflow_data_validation/tools/docker_build/build_debian.sh"]

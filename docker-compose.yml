@@ -26,3 +26,10 @@ services:
       dockerfile: tensorflow_data_validation/tools/docker_build/Dockerfile.manylinux2010
     volumes:
       - .:/build:delegated
+  debian:
+    image: tfdv-build:debian
+    build:
+      context: .
+      dockerfile: tensorflow_data_validation/tools/docker_build/Dockerfile.debian
+    volumes:
+      - .:/build:delegated

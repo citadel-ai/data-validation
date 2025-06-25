@@ -26,3 +26,10 @@ services:
       dockerfile: tensorflow_data_validation/tools/docker_build/Dockerfile.manylinux2010
     volumes:
       - .:/build:delegated
+  manylinux-aarch64:
+    image: tfdv-build:manylinux_aarch64
+    build:
+      context: .
+      dockerfile: tensorflow_data_validation/tools/docker_build/Dockerfile.manylinux_aarch64
+    volumes:
+      - .:/build:delegated

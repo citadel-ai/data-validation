@@ -136,12 +136,12 @@ http_archive(
     ],
 )
 
-PYBIND11_COMMIT = "8a099e44b3d5f85b20f05828d919d2332a8de841"  # 2.11.1
+PYBIND11_COMMIT = "2e0815278cb899b20870a67ca8205996ef47e70f"  # 2.12.1
 
 http_archive(
     name = "pybind11",
     build_file = "//third_party:pybind11.BUILD",
-    sha256 = "8f4b7f28d214e36301435c055076c36186388dc9617117802cba8a059347cb00",
+    sha256 = "1a38cf9cd13f089e6c1c8a1f366766a82eb7dd6cb483ab50ae80760911043162",
     strip_prefix = "pybind11-%s" % PYBIND11_COMMIT,
     urls = ["https://github.com/pybind/pybind11/archive/%s.zip" % PYBIND11_COMMIT],
 )
